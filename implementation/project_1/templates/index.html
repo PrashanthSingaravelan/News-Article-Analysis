@@ -64,35 +64,35 @@
             <div class="row">
 
 <form action="/news_article_link" method="post">
-        
-            <!-- input-1 -->
-            <h2>Paste the news article link</h2>  <p><input type="text" name="article_id"/></p>
-            <button type="submit" name="get_news_button" value="" class="btn btn-info">Get News Content</button>
- </form>
+    <!-- input-1 -->
+    <h2>Paste the news article link</h2>  
+        <p><input type="text" name="article_id" size="50"></p>
+        <button type="submit" name="get_news_button" value="" class="btn btn-info">Get News Content</button>
+</form>
 
 <form action="/plain_news" method="post">
-            <br><br>
-            <!-- input-2 -->    
-            <h2>Paste the news</h2>  <p><input type="text"  name="text_id"/></p>
-            <button type="submit" name="your_news_button" value="" class="btn btn-info">Your News Content</button>
+    <br><br>
+    <!-- input-2 -->    
+    <h2>Paste the news</h2>  
+        <p><textarea name="text_id" cols="60" rows="10"></textarea></p>
+        <button type="submit" name="your_news_button" value="" class="btn btn-info">Your News Content</button>
 </form>
 
-<form action="/translate_news" method="post"></form>
-            <br><br>
-            <!-- input-3 -->
-            <h2>Translate the news</h2>  <p><input type="text"  name="translate_text_id"/></p>
+<form action="/translate_news" method="post">
+    <br><br>
+    <!-- input-3 -->
+    <h2>Translate the news</h2> 
+    <p><textarea name="translate_text_id" cols="60" rows="10"></textarea></p>
+    <label for="languages">Choose the language:</label>
 
-            <label for="languages">Choose the language:</label>
-            <select id="languages" name="destination_language_id">
-              <option value="tamil">தமிழ்</option>
-              <option value="en">English</option>
-              <option value="french">French</option>
-              <option value="hindi">Hindi</option>
-              <option value="german">German</option>
-            </select>
-    
-            <button type="submit" name="translate_button" value="" class="btn btn-info"> Translate Button </button>    
+    <select id="languages" name="destination_language_id">
+        <option value="tamil">தமிழ்</option>       <option value="en">English</option>
+        <option value="french">French</option>    <option value="hindi">Hindi</option>
+    </select>
+
+    <button type="submit" name="translate_button" value="" class="btn btn-info"> Translate Button </button>    
 </form>
+
 </div>
 </div>
 </div>
