@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 from deep_translator import GoogleTranslator
 import requests
 
+app = Flask(__name__)
+
 ## returns the news content from the article
 def news_extract(heading, url):
 
@@ -68,7 +70,7 @@ def news_extract(heading, url):
     if (heading == 'NDTV'): return ndtv_get_content(url)
     if (heading == 'Times_of_India'): return toi_get_content(url)
 
-app = Flask(__name__)
+
  
 @app.route("/")
 def index():
@@ -81,16 +83,16 @@ def plain_news():
 
 @app.route('/news_article_link',  methods=['GET', 'POST'])
 def link_to_content():
-    url          = request.form['article_id']
+    url                      = request.form['article_id']
     news_company = request.form['news_company']
-    plain_text   = news_extract(news_company, url)
+    plain_text           = news_extract(news_company, url)
     print("in App.py : ",plain_text)
     return render_template("output.html", plain_news = plain_text)
 
 @app.route('/translate_news', methods=['GET', 'POST'])
 def translate():
-    text              = request.form['translate_text_id']
-    language          = request.form['destination_language_id']
+    text                     = request.form['translate_text_id']
+    language            = request.form['destination_language_id']
     translated_text   = GoogleTranslator(source='auto', target=language).translate(text)
     setattr(g, '_translated_text', translated_text)
     return render_template("output.html", translated_news = translated_text)
@@ -109,6 +111,7 @@ def categorize_news():
         categorized_text = request.form['categorize_id']
         print(categorized_text)
     return render_template("page_1.html", ready_text = categorized_text)
+
 
 if __name__ == '__main__':
 	app.run(debug=True)
